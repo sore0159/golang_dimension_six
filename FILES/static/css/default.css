@@ -1,0 +1,21 @@
+body {
+        padding: 0px;
+        margin: 0px;
+        background-color: #ffffff;
+        font-family: "Courier New", Courier, Monospace;
+        color: #000011;
+}
+div {
+        padding: 0px; margin: 0px;
+}
+a.title {
+        text-decoration: none;
+}
+a       {
+        color: #0000ff;
+}
+
+
+
+
+

@@ -9,7 +9,9 @@ import (
 func apiJSON(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
+		apiJSONget(w, r)
 	case "PUT":
+		apiJSONput(w, r)
 	default:
 		JSONUserError(w, er.NewU("UNSUPPORTED JSON METHOD"))
 	}

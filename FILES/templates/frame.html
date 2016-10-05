@@ -1,0 +1,19 @@
+{{ define "frame" }}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{ template "title" . }}</title>
+<link rel="stylesheet" href="/static/css/{{ template "css" . }}.css">
+<link rel="shortcut icon" href="/static/img/{{ template "icon" }}">
+</head>
+<body>
+        {{ template "body" . }}
+</body>
+</html>
+{{ end }}
+
+{{ define "title"}}DEFAULT TITLE{{ end }}
+{{ define "css"}}default{{ end }}
+{{ define "body"}}DEFAULT BODY{{ end }}
+{{ define "icon" }}yd32.ico{{ end }}
