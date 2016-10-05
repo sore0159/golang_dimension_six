@@ -1,6 +1,15 @@
 package errors
 
+import (
+	"runtime"
+)
+
 type User string
+
+func NewU(msg string) *User {
+	u := User(msg)
+	return &u
+}
 
 func (u *User) Error() string {
 	if u == nil {
@@ -13,25 +22,23 @@ func (u *User) Error() string {
 	return msg
 }
 
-func NewU(msg string) *User {
-	u := User(msg)
-	return &u
-}
-
 type Server struct {
 	Base   error
-	Layers []*Layer
+	Layers []*Context
 }
 
-func Check(err error) *Server {
-	if err == nil {
-		return nil
+func NewS(err error, msg string) *Server {
+	_, fName, lineNum, _ := runtime.Caller(1)
+	c := &Context{File: fName, Line: lineNum,
+		DataKeys: []string{"creation"},
+		DataVals: []interface{}{msg},
 	}
-	return &Server{Base: err}
+	return &Server{
+		Base:   err,
+		Layers: []*Context{c},
+	}
 }
 
-type Layer struct {
-	File string
-	Line int
-	Data map[string]interface{}
+func (s *Server) Error() string {
+	return "Server Error, Base: " + s.Base.Error()
 }
