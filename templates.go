@@ -19,13 +19,13 @@ func serveTemplate(w http.ResponseWriter, data interface{}, files ...string) {
 		files[i] = "FILES/templates/" + n + ".html"
 	}
 	t, err := template.ParseFiles(files...)
-	if s := er.Check(err); s != nil {
-		Log(s)
+	if err != nil {
+		Log(er.NewS(err, "serveTemplate parsefiles failure"))
 		return
 	}
 	err = t.ExecuteTemplate(w, "frame", data)
-	if s := er.Check(err); s != nil {
-		Log(s)
+	if err != nil {
+		Log(er.NewS(err, "serveTemplate executeTemplate failure"))
 		return
 	}
 }

@@ -6,5 +6,5 @@ import (
 )
 
 func Log(s *er.Server) {
-	log.Println("todo: error logging")
+	s.Verbose(log.Println)
 }

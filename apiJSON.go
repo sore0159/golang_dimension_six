@@ -6,7 +6,7 @@ import (
 )
 
 func apiJSONget(w http.ResponseWriter, r *http.Request) {
-	JSONServerError(w, nil)
+	JSONServerError(w, er.NewS(er.NewU("TODO: JSON GET"), "TODO"))
 }
 func apiJSONput(w http.ResponseWriter, r *http.Request) {
 	JSONUserError(w, er.NewU("TODO: JSON PUT"))

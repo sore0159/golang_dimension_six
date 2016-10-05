@@ -11,8 +11,7 @@ func main() {
 	port := ":8080"
 	log.Println("STARTING SERVER ON PORT " + port)
 	SetupMux()
-	if s := er.Check(http.ListenAndServe(port, nil)); s != nil {
-		log.Println("Listen And Serve Error")
-		Log(s)
+	if err := http.ListenAndServe(port, nil); err != nil {
+		Log(er.NewS(err, "main ListenAndServe failure"))
 	}
 }
