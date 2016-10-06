@@ -21,6 +21,7 @@ type Company struct {
 	GID  int
 	CID  int
 	Name string
+	PPA  int
 }
 
 type Obstacle struct {

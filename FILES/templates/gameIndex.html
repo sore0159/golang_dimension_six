@@ -16,5 +16,8 @@ No Companies Found
 {{ if .CanAdd }}
 <a href="/newcompany/{{ .GID }}">Add A Company?</a><br>
 {{ end }}
+{{ if .CanStart }}
+<a href="/startgame/{{ .GID }}">Start Game</a><br>
+{{ end }}
 <a href="/">Back To Main</a>
 {{ end }}

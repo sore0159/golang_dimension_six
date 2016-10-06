@@ -3,8 +3,8 @@ package models
 type Frame struct {
 	GID  int
 	CID  int
+	FID  int
 	Name string
-	ID   int
 
 	Basics  int
 	Rockets int
