@@ -1,4 +1,9 @@
-{{ define "title" }} MAIN INDEX TITLE {{ end }}
+{{ define "title" }}Dimension Six Main Page{{ end }}
 {{ define "body" }}
-MAIN INDEX BODY
+        {{ range $gid := . }}
+        <a href="/game/{{ . }}">GAME ID {{ . }}</a><br>
+        {{ else }}
+        No Games Found<br>
+        {{ end }}
+<a href="/newgame">New Game?</a>
 {{ end }}

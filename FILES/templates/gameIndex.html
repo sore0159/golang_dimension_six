@@ -1,0 +1,20 @@
+{{ define "title" }}Dimension Six Game {{ .GID }} Page{{ end }}
+{{ define "body" }}
+GAME PAGE FOR {{ .GID }}<br>
+{{ if lt .Doom 12 }}
+Doom: {{ .Doom }}<br>
+{{ else }}
+Game Not Yet Started<br>
+{{ end }}
+{{ range $index, $name := .Companies }}
+{{ if ne $index 0 }}
+Company {{ $index }}: {{ $name }}<br>
+{{ end }}{{ else }}
+No Companies Found
+{{ end }}
+
+{{ if .CanAdd }}
+<a href="/newcompany/{{ .GID }}">Add A Company?</a><br>
+{{ end }}
+<a href="/">Back To Main</a>
+{{ end }}

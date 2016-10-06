@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	er "mule/dim_six/errors"
+	lg "mule/dim_six/log"
 	"net/http"
 )
 
@@ -30,7 +31,7 @@ func JSONSuccess(w http.ResponseWriter, obj interface{}) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 	if _, err = w.Write(data); err != nil {
-		Log(er.NewS(err, "json success write failure"))
+		lg.Log(er.NewS(err, "json success write failure"))
 	}
 }
 
@@ -39,16 +40,16 @@ func JSONUserError(w http.ResponseWriter, u *er.User) {
 	w.WriteHeader(400)
 	_, err := w.Write([]byte("{'status': 'fail', 'data': {'message':'" + u.Error() + "'}}"))
 	if err != nil {
-		Log(er.NewS(err, "json user error write failure"))
+		lg.Log(er.NewS(err, "json user error write failure"))
 	}
 }
 
 func JSONServerError(w http.ResponseWriter, s *er.Server) {
-	Log(s)
+	lg.Log(s)
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusInternalServerError)
 	_, err := w.Write([]byte("{'status': 'error', 'message': 'internal server error'}"))
 	if err != nil {
-		Log(er.NewS(err, "json server error write failure"))
+		lg.Log(er.NewS(err, "json server error write failure"))
 	}
 }
