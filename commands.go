@@ -1,5 +1,6 @@
 package main
 
+/*
 import (
 	"fmt"
 	"mule/dim_six/models"
@@ -7,7 +8,7 @@ import (
 )
 
 func commandNewGame(w http.ResponseWriter, r *http.Request) {
-	id := NewData()
+//	id := NewData()
 	http.Redirect(w, r, fmt.Sprintf("/game/%d", id), http.StatusFound)
 }
 
@@ -54,3 +55,4 @@ func commandNewFrame(w http.ResponseWriter, r *http.Request) {
 	e.AddFrame(cid, "TEST FRAME", 1, models.DEFENSE)
 	http.Redirect(w, r, fmt.Sprintf("/company/%d/%d", gid, cid), http.StatusFound)
 }
+*/

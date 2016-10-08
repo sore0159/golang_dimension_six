@@ -1,0 +1,13 @@
+{{ define "title" }}Dimension Six Game {{ . }} Setup Page{{ end }}
+{{ define "body" }}
+GAME SETUP PAGE FOR {{ . }}<br>
+Make JSON requests for status of {{ . }}<br>
+Redirect to gameView if game in progress<br>
+Link/show companies/status of {{ . }}<br>
+New company button<br>
+Configure Game controls<br>
+Start Game button<br>
+
+<a href="/games">Back To Games List</a><br>
+<a href="/">Back To Main</a>
+{{ end }}

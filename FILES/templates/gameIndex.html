@@ -1,23 +1,9 @@
-{{ define "title" }}Dimension Six Game {{ .GID }} Page{{ end }}
+{{ define "title" }}Dimension Six Game List Page{{ end }}
 {{ define "body" }}
-GAME PAGE FOR {{ .GID }}<br>
-{{ if lt .Doom 12 }}
-Doom: {{ .Doom }}<br>
-{{ else }}
-Game Not Yet Started<br>
-{{ end }}
-{{ range $index, $name := .Companies }}
-{{ if ne $index 0 }}
-Company {{ $index }}: {{ $name }}<br>
-{{ end }}{{ else }}
-No Companies Found
-{{ end }}
+GAME LIST PAGE<br>
+Make JSON requests for games/status<br>
+Link to game pages<br>
+Create New Game<br>
 
-{{ if .CanAdd }}
-<a href="/newcompany/{{ .GID }}">Add A Company?</a><br>
-{{ end }}
-{{ if .CanStart }}
-<a href="/startgame/{{ .GID }}">Start Game</a><br>
-{{ end }}
 <a href="/">Back To Main</a>
 {{ end }}

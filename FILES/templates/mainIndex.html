@@ -1,9 +1,6 @@
 {{ define "title" }}Dimension Six Main Page{{ end }}
 {{ define "body" }}
-        {{ range $gid := . }}
-        <a href="/game/{{ . }}">GAME ID {{ . }}</a><br>
-        {{ else }}
-        No Games Found<br>
-        {{ end }}
-<a href="/newgame">New Game?</a>
+        MAIN INDEX<br>
+        Talk about Dimension Six.<br>
+        <a href="/games/">Games List</a>
 {{ end }}

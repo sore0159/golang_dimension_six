@@ -1,0 +1,9 @@
+{{ define "title" }}Dimension Six Game {{ index . 0 }} Company {{ index . 1 }} Page{{ end }}
+{{ define "body" }}
+COMPANY PAGE FOR {{ index . 0 }} COMPANY {{ index . 1 }}<br>
+Make JSON requests for game/company/frame info<br>
+Modify frames via json<br>
+
+<a href="/game/{{ index . 0 }}">Back To Game</a><br>
+<a href="/">Back To Main</a>
+{{ end }}

@@ -3,7 +3,6 @@ package main
 import (
 	"html/template"
 	er "mule/dim_six/errors"
-	lg "mule/dim_six/log"
 	"net/http"
 )
 
@@ -21,12 +20,21 @@ func serveTemplate(w http.ResponseWriter, data interface{}, files ...string) {
 	}
 	t, err := template.ParseFiles(files...)
 	if err != nil {
-		lg.Log(er.NewS(err, "serveTemplate parsefiles failure"))
+		Log(er.NewS(err, "serveTemplate parsefiles failure"))
 		return
 	}
 	err = t.ExecuteTemplate(w, "frame", data)
 	if err != nil {
-		lg.Log(er.NewS(err, "serveTemplate executeTemplate failure"))
+		Log(er.NewS(err, "serveTemplate executeTemplate failure"))
 		return
 	}
+}
+
+func HTMLUserError(w http.ResponseWriter, u *er.User) {
+	http.Error(w, u.Error(), 400)
+}
+
+func HTMLServerError(w http.ResponseWriter, s *er.Server) {
+	Log(s)
+	http.Error(w, "internal server error", 500)
 }

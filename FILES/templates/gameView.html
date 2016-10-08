@@ -1,0 +1,10 @@
+{{ define "title" }}Dimension Six Game {{ . }} View Page{{ end }}
+{{ define "body" }}
+GAME VIEW PAGE FOR {{ . }}<br>
+Make JSON requests for status of {{ . }}<br>
+Redirect to gameSetup if game not in progress<br>
+Link/show companies/status of {{ . }}<br>
+
+<a href="/games">Back To Games List</a><br>
+<a href="/">Back To Main</a>
+{{ end }}
